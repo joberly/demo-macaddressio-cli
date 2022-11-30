@@ -1,6 +1,13 @@
 # demo-macaddressio-cli
 A demo macaddress.io API CLI.
 
+## Notes
+
+This has been built and tested using Docker on Windows 10.
+Since Docker on Windows 10 uses the linux/amd64 platform and the build is
+multi-architecture/multi-platform, this should build and run similarly on
+other host platforms.
+
 ## Prerequisites
 
 1. [Install Docker](https://docs.docker.com/get-docker/)
