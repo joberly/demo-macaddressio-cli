@@ -5,7 +5,7 @@ A demo macaddress.io API CLI.
 
 1. [Install Docker](https://docs.docker.com/get-docker/)
 
-## Building
+## Build
 
 From the repository root directory, do the following.
 
@@ -21,10 +21,25 @@ From the repository root directory, do the following.
    docker buildx build --builder builder -t macaddrio:latest --load .
    ```
 
-## Running
+## Run
 
-Run from the container built above.
+1. Create an environment file for the API key.
+   This keeps the API key from being recorded in shell history and from being
+   present in the process listing.
+
+   ```env
+   MACADDRIO_API_KEY="apikeyhere"
+   ```
+
+2. Run from the container built above using the above environment file.
+
+   ```
+   docker run --rm --env-file env macaddrio:latest <mac-address>
+   ```
+
+## Example Run
 
 ```
-docker run --rm macaddrio:latest
+$ docker run --rm --env-file env macaddrio:latest 44:38:39:ff:ef:57
+Cumulus Networks, Inc
 ```

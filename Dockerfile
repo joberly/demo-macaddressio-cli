@@ -9,7 +9,12 @@ RUN set -e ; \
     cd /go/src/demo-macaddressio-cli/cmd/macaddrio ; \
     GOOS=$TARGETOS GOARCH=$TARGETARCH go build . ;
 
-FROM alpine:3.17.0
+FROM debian:buster-slim
+
+RUN set -e ; \
+    apt update ; \
+    apt install -y ca-certificates ; \
+    apt clean ;
 
 COPY --from=builder /go/src/demo-macaddressio-cli/cmd/macaddrio/macaddrio /macaddrio
 
